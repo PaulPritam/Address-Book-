@@ -223,6 +223,19 @@ public class AddressBook {
         AddressBook2 addressbook = new AddressBook2(bookName);
         addressBookList.add(addressbook);
     }
+    public boolean duplicateCheck(String fName)
+    {
+        int checker = 0;
+        for(AddressBook a : contactList)
+        {
+            if(a.getFirstName().equals(fName))
+            {
+                checker=1;
+                break;
+            }
+        }
+        return checker==1;
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Adressbook");
@@ -261,9 +274,10 @@ public class AddressBook {
                 case 0:
                     book.displayAddressBook();
                     break;
-                
+
             }
         }
-    }
+
+            }
 }
 
