@@ -3,23 +3,28 @@ package com.addressbook;
 import java.util.Scanner;
 
 public class AddressBook {
+    public static void contactDetails()
+    {
+        System.out.println("welcome to address book ");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter firstname");
+        String fname = input.next();
+        System.out.println("Enter lastname");
+        String lname = input.next();
+        System.out.println("Enter address");
+        String adr = input.next();
+        System.out.println("Enter state");
+        String state = input.next();
+        System.out.println("Enter city");
+        String city = input.next();
+        System.out.println("Enter zip");
+        String zip = input.next();
+        System.out.println("Enter phonenum");
+        String phno = input.next();
+        System.out.println("Details entered are: \n" +fname + "\n" +lname+ "\n" +adr+ "\n"+state+ "\n" +city+ "\n" +zip+ "\n" +phno);
+    }
    public static void main(String[] args )
    {
-       System.out.println("welcome to address book ");
-       Scanner sc = new Scanner(System.in);
-       System.out.println("enter firstname");
-       String fname = sc.next();
-       System.out.println("enter lastname");
-       String lname = sc.next();
-       System.out.println("enter address");
-       String adr = sc.next();
-       System.out.println("enter state");
-       String state = sc.next();
-       System.out.println("enter city");
-       String city = sc.next();
-       System.out.println("enter zip");
-       String zip = sc.next();
-       System.out.println("enter phonenum");
-       String phno = sc.next();
+        contactDetails();
    }
 }
