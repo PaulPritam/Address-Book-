@@ -190,39 +190,56 @@ public class AddressBook {
         if (!found)
             System.out.println("No such contact");
     }
+    public void deleteContact(Scanner scan)
+    {
+        System.out.println("Enter the first name to delete");
+        String name = scan.next();
+        for (int i = 0; i <contactList.size(); i++) {
+            String personName = contactList.get(i).firstName;
+            if (name.equals(personName))
+            {
+                contactList.remove(i);
+                System.out.println("The details of that person were deleted ");
+                break;
+            }
+            else
+                System.out.println("Enter a valid name");
+
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Adressbook");
         AddressBook book = new AddressBook();
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter an option");
-        System.out.println("Options are\n"
-                + "1.Add contact\n"
-                + "2.Edit contact\n"
-                + "3.Delete contact\n"
-                + "4.Exit\n");
-        int choice = scan.nextInt();
-        scan.nextLine();
-        switch (choice)
-        {
-            case 1:
-                book.addContact(scan);
-                break;
-            case 2:
-                book.editContact(scan);
-                break;
-            default:
-                System.out.println("Invalid choice");
+        boolean loop = true;
+
+        while(loop) {
+            System.out.println("Enter an option");
+            System.out.println("Options are\n"
+                    + "1.Add contact\n"
+                    + "2.Edit contact\n"
+                    + "3.Delete contact\n"
+                    + "4.Exit\n");
+            int choice = scan.nextInt();
+            scan.nextLine();
+            switch (choice) {
+                case 1:
+                    book.addContact(scan);
+                    break;
+                case 2:
+                    book.editContact(scan);
+                    break;
+                case 3:
+                    book.deleteContact(scan);
+                    break;
+                case 4:
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
         }
-
-
-
-
-
-
     }
-
-
-
-   }
+}
 
