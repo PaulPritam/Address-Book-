@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
+    ArrayList<AddressBook2> addressBookList = new ArrayList<>();
     public AddressBook(){}
     private String firstName;
     private String lastName;
@@ -207,6 +208,21 @@ public class AddressBook {
 
         }
     }
+    public void displayAddressBook()
+    {
+        System.out.println("AddressBook Names are : ");
+
+        for (AddressBook2 addressBookList : addressBookList) {
+            System.out.println(addressBookList);
+        }
+    }
+    public void addAddressBook(Scanner scan)
+    {
+        System.out.println("Enter AddressBook Name");
+        String bookName = scan.next();
+        AddressBook2 addressbook = new AddressBook2(bookName);
+        addressBookList.add(addressbook);
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Adressbook");
@@ -220,7 +236,10 @@ public class AddressBook {
                     + "1.Add contact\n"
                     + "2.Edit contact\n"
                     + "3.Delete contact\n"
-                    + "4.Exit\n");
+                    + "4.Add Addressbook\n"
+                    + "5.Exit\n"
+                    + "0.Display\n");
+
             int choice = scan.nextInt();
             scan.nextLine();
             switch (choice) {
@@ -234,10 +253,15 @@ public class AddressBook {
                     book.deleteContact(scan);
                     break;
                 case 4:
+                    book.addAddressBook(scan);
+                    break;
+                case 5:
                     loop = false;
                     break;
-                default:
-                    System.out.println("Invalid choice");
+                case 0:
+                    book.displayAddressBook();
+                    break;
+                
             }
         }
     }
