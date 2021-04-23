@@ -181,7 +181,7 @@ public class AddressBook {
                         person.setCity(address);
                         break;
                     }
-                    default:System.out.println("exit");
+                    default:System.out.println("Exit");
                 }
 
             }
