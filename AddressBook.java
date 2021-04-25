@@ -1,7 +1,9 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
     ArrayList<AddressBook2> addressBookList = new ArrayList<>();
@@ -181,7 +183,7 @@ public class AddressBook {
                         person.setCity(address);
                         break;
                     }
-                    default:System.out.println("Exit");
+                    default:System.out.println("exit");
                 }
 
             }
@@ -236,6 +238,14 @@ public class AddressBook {
         }
         return checker==1;
     }
+    public void personByState(Scanner scan)
+    {
+        String stateName = scan.next();
+        List<AddressBook> search = contactList.stream().filter(f->f.getState().equals(stateName)).collect(Collectors.toList());
+        for(AddressBook searching : search)
+        System.out.println(searching.getFirstName() +" "+ searching.getLastName());
+    }
+
 
     public static void main(String[] args) {
         System.out.println("Welcome to Adressbook");
@@ -251,6 +261,7 @@ public class AddressBook {
                     + "3.Delete contact\n"
                     + "4.Add Addressbook\n"
                     + "5.Exit\n"
+                    + "6."
                     + "0.Display\n");
 
             int choice = scan.nextInt();
@@ -277,6 +288,7 @@ public class AddressBook {
 
             }
         }
+
 
             }
 }
